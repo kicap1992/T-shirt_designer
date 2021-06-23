@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Irwan T-Shirt Design</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Pacifico&display=swap" rel="stylesheet">
+
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style type="text/css">
+    .pacific{
+      font-family: Pacifico
+    }
+    .metal{
+      font-family: Metal Mania
+    }
+  </style>
+
+  <!-- =======================================================
+  * Template Name: Kelly - v2.0.0
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo"><a href="index.html" style="font-family: Metal Mania">Irwan T-Shirt</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul class="metal">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="list.html">Design List</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2 class="metal">Mulai Desain</h2>
+          <p style="text-align: center; font-family: Pacifico">Desain Sesuai Keinginan Anda</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 mt-lg-0">
+
+            <!-- <center>
+              <div class="form-group fabric-canvas-wrapper">
+                <canvas id="c" height="300" style="border:1px solid #ccc;"></canvas>
+              </div>
+            </center> -->
+
+            <div style="background-image: url(assets/img/white.png); height: 350px; width: 100%;background-size: 100% 100%;" id="sini_div_baju_color">
+              <div style="height: 20%; width: 100%;background-size: 100% 100%;"></div>
+              <div id="sini_div_canvas" style="height: 68%; width: 45%;background-size: 100% 100%;  position: center; margin: auto;">
+                <div class="form-group fabric-canvas-wrapper" style="height: 100%">
+                  <canvas id="c" style="border:1px solid #ccc;"></canvas>
+                </div>
+              </div>
+                
+            </div>
+            <br>
+            <div class="form-group">
+              <select class="form-control pacific" onchange="change_editor(value)" id="editor_select" >
+                <option selected="" disabled="">-Pilih Editor</option>
+                <option value="bentuk">Persegi Bentuk</option>
+                <option value="teks">Teks</option>
+                <option value="drawing">Free Drawing</option>
+                <option value="image">Image</option>
+              </select>
+            </div>            
+            <div id="sini_div_editor"></div>
+            <div id="sini_tampung_image" style="display: none;"></div>
+
+            <div id="div_upload_image" style="display: none">
+              <div class="form-group">
+                <label class="pacific">Upload Image</label>
+                <input class="form-control" type="file" id="input_upload_image" >
+              </div>
+              <div class="form-group" style="text-align:center">
+                <button onclick="add_image()" class="btn btn-info pacific" style="font-weight: bold;">Tambah Image</button>
+              </div>
+            </div>
+            
+            <center><button id="save_datanya11" onclick="save_desain()" class="pacific btn btn-success" style="font-weight: bold;" disabled="">Simpan Desain</button></center>
+            <!-- <center><button onclick="cek_simpanan()" class="btn btn-success" style="font-weight: bold;">Cek Simpanan</button></center> -->
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright" style="font-family: Pacifico">
+        &copy; Copyright <strong><span>Irwan</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits" style="font-family: Metal Mania">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
+        Designed by Irwan
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" id="back_to_top" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/toastr/toastr.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/toastr/toastr.min.css">
+
+  <!-- Template Main JS File -->
+  <script src="cordova.js"></script>
+  
+  <script src="assets/fabric.min.js"></script> 
+  <script src="assets/js/desain_2.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
