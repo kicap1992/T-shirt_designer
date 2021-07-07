@@ -17,6 +17,8 @@
  * under the License.
  */
 
+// const download = require("./download");
+
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
@@ -25,6 +27,8 @@ function onDeviceReady() {
   // screen.orientation.lock('potrait');
   var i = screen.orientation.lock('portrait');
   console.log('Orientation is ' + screen.orientation.type);
+
+	 
 }
 
 ////// get warna baju //////
@@ -85,19 +89,19 @@ function hapus_desain(){
 
 // console.log(list_desain)
 var baju_color;
-var detail_desain;
+var detail_desain = null;
 // console.log(list_desain)
 for (var i = 0; i < list_desain.length; i++) {
 	// console.log(list_desain[i].id);
 	if (list_desain[i].id == id_desain) {
 		baju_color = list_desain[i].canvas
-		detail_desain = list_desain[i].isi_depan;
+		detail_desain = list_desain[i].isi_belakang;
 		// console.log(detail_desain)
 		break;
 	}
 }
 
-$("#sini_div_baju_color").attr("style","background-image: url(assets/img/"+baju_color+"1.JPG); height: 350px; width: 100%;background-size: 100% 100%;");
+$("#sini_div_baju_color").attr("style","background-image: url(assets/img/"+baju_color+"2.JPG); height: 350px; width: 100%;background-size: 100% 100%;");
 
 function toastnya(id,mesej){
   toastr.options = {
@@ -141,38 +145,41 @@ canvas.renderTop();
 resizeCanvas();
 
 
-	for (var i = 0; i < detail_desain.length; ++i) {
-	  // if (detail_desain[i].kategori == 'segi_empat') {
-	    // segi_empat(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].width,detail_desain[i].heightdetail_desain[i].stroke)
-	  //   console.log(detail_desain[i]);
-	  // } 
-	  if (detail_desain[i].kategori == "segi_empat") {
-	    // console.log('ada segi empat')
-	    segi_empat(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].width,detail_desain[i].height,detail_desain[i].stroke)
-	  } 
-	  else if (detail_desain[i].kategori == "segi_tiga") {
-	    // console.log('ada segi empat')
-	    segi_tiga(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].width,detail_desain[i].height,detail_desain[i].stroke)
-	  } 
-	  else if (detail_desain[i].kategori == "lingkaran") {
-	    // console.log('ada segi empat')
-	    segi_lingkaran(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].radius,detail_desain[i].stroke,detail_desain[i].scaleX,detail_desain[i].scaleY)
-	  }
-	  else if (detail_desain[i].kategori == "free_drawing") {
-	    // console.log('ada segi empat')
-	    free_draw(detail_desain[i].id,detail_desain[i].path,detail_desain[i].left,detail_desain[i].top,detail_desain[i].height,detail_desain[i].width,detail_desain[i].stroke_width,detail_desain[i].stroke)
-	  }
-	  else if (detail_desain[i].kategori == "teks") {
-	    // console.log('ada segi empat')
-	    // tambah_teks(id,input,fill,family,top,left,width,height,scaleX,scaleY)
-	    tambah_teks(detail_desain[i].id,detail_desain[i].input_teks,detail_desain[i].fill,detail_desain[i].fontFamily,detail_desain[i].top,detail_desain[i].left,detail_desain[i].width,detail_desain[i].height,detail_desain[i].angle,detail_desain[i].scaleX,detail_desain[i].scaleY)
-	  }
-	  else if (detail_desain[i].kategori == "foto") {
-	    // console.log('ada segi empat')
-	    // add_image(id,base,scaleX,scaleX,left,top,angle)
-	    add_image(detail_desain[i].id,detail_desain[i].detail,detail_desain[i].scaleX,detail_desain[i].scaleY,detail_desain[i].left,detail_desain[i].top,detail_desain[i].angle )
-	  }
+	if (detail_desain != null) {
+		for (var i = 0; i < detail_desain.length; ++i) {
+			// if (detail_desain[i].kategori == 'segi_empat') {
+				// segi_empat(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].width,detail_desain[i].heightdetail_desain[i].stroke)
+			//   console.log(detail_desain[i]);
+			// } 
+			if (detail_desain[i].kategori == "segi_empat") {
+				// console.log('ada segi empat')
+				segi_empat(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].width,detail_desain[i].height,detail_desain[i].stroke)
+			} 
+			else if (detail_desain[i].kategori == "segi_tiga") {
+				// console.log('ada segi empat')
+				segi_tiga(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].width,detail_desain[i].height,detail_desain[i].stroke)
+			} 
+			else if (detail_desain[i].kategori == "lingkaran") {
+				// console.log('ada segi empat')
+				segi_lingkaran(detail_desain[i].id,detail_desain[i].angle,detail_desain[i].left,detail_desain[i].top,detail_desain[i].fill,detail_desain[i].radius,detail_desain[i].stroke,detail_desain[i].scaleX,detail_desain[i].scaleY)
+			}
+			else if (detail_desain[i].kategori == "free_drawing") {
+				// console.log('ada segi empat')
+				free_draw(detail_desain[i].id,detail_desain[i].path,detail_desain[i].left,detail_desain[i].top,detail_desain[i].height,detail_desain[i].width,detail_desain[i].stroke_width,detail_desain[i].stroke)
+			}
+			else if (detail_desain[i].kategori == "teks") {
+				// console.log('ada segi empat')
+				// tambah_teks(id,input,fill,family,top,left,width,height,scaleX,scaleY)
+				tambah_teks(detail_desain[i].id,detail_desain[i].input_teks,detail_desain[i].fill,detail_desain[i].fontFamily,detail_desain[i].top,detail_desain[i].left,detail_desain[i].width,detail_desain[i].height,detail_desain[i].angle,detail_desain[i].scaleX,detail_desain[i].scaleY)
+			}
+			else if (detail_desain[i].kategori == "foto") {
+				// console.log('ada segi empat')
+				// add_image(id,base,scaleX,scaleX,left,top,angle)
+				add_image(detail_desain[i].id,detail_desain[i].detail,detail_desain[i].scaleX,detail_desain[i].scaleY,detail_desain[i].left,detail_desain[i].top,detail_desain[i].angle )
+			}
+		}
 	}
+	
 
   
 
@@ -300,9 +307,9 @@ resizeCanvas();
 
 
 
-	function desain_belakang(){
+	function desain_depan(){
 		console.log(id_desain)
-		window.location.href ="desain_complete_belakang.html?id="+id_desain;
+		window.location.href ="desain_complete.html?id="+id_desain;
 	}
 
 
@@ -311,17 +318,17 @@ resizeCanvas();
 	function takeshot() { 
 	  var div = document.getElementById('sini_div_baju_color'); 
 
-	  // Use the html2canvas 
-	  // function to take a screenshot 
-	  // and append it 
-	  // to the output div 
+	  
 	  html2canvas(div).then( 
 	    function (canvas) { 
 	      document 
 	      .getElementById('output') 
 	      .appendChild(canvas); 
 	      var base64URL = canvas.toDataURL('image/jpeg');
+	     
 	      console.log(base64URL)
+				window.location.href = base64URL;
+				
 	      $("#ini_untuk_share").attr('onclick',"window.plugins.socialsharing.share(null, 'Irwan T-Shirt Design', '"+base64URL+"', null)");
 	      var x = document.createElement("IMG");
 	      x.setAttribute("src", base64URL);
@@ -333,6 +340,7 @@ resizeCanvas();
 				}, 200);
 	  }) 
 	} 
+
 
 	async function DownloadToDevice() {
 		$.blockUI({ 
@@ -356,7 +364,7 @@ resizeCanvas();
 				$.ajax({
 					url: "http://irwan.kuwakuwi.com/",
 					type: 'post',
-					data: {proses : "ambil_gambar" , base64 : base64URL, id : "desain_depan"+id_desain},
+					data: {proses : "ambil_gambar" , base64 : base64URL, id : "desain_belakang"+id_desain},
 					beforeSend: function(res) {
 						
 					},
@@ -384,7 +392,7 @@ resizeCanvas();
 	function ambil_foto(){
 		var blob = null;
 		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "http://irwan.kuwakuwi.com/"+"desain_depan"+id_desain+".png");
+		xhr.open("GET", "http://irwan.kuwakuwi.com/"+"desain_belakang"+id_desain+".png");
 		xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
 		xhr.onload = function()
 		{
@@ -400,7 +408,7 @@ resizeCanvas();
 			// 				 break;
 			//  }
 			 var folderpath = storageLocation + "Download";
-			 var filename = "desain_depan"+id_desain+".png";
+			 var filename = "desain_belakang"+id_desain+".png";
 			 var DataBlob = blob;
 				window.resolveLocalFileSystemURL(folderpath, function(dir) {
 					dir.getFile(filename, {create:true}, function(file) {

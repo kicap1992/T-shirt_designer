@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">  
   <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Pacifico&display=swap" rel="stylesheet">
 
+
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -28,17 +29,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <style type="text/css">
-    #footer {
-      background: #e9e8e6;
-      padding: 30px 0;
-      color: #222222;
-      font-size: 14px;
-      text-align: center;
-      position: fixed; bottom: 0; right: 0; left: 0;
-    }
-  </style>
   <style type="text/css">
     .pacific{
       font-family: Pacifico
@@ -86,29 +76,56 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2 style=" font-family: Metal Mania">Mulai Desain</h2>
-          <p style="text-align: center; font-family: Pacifico">Silakan pilh warna baju dari pilihan yang berada di bawah ini</p>
+          <h2 class="metal">Mulai Desain</h2>
+          <p style="text-align: center; font-family: Pacifico">Desain Sesuai Keinginan Anda <br> <i>(Belakang Baju)</i></p>
+          <!-- <br>
+          <center><button onclick="" class="pacific btn btn-primary btn-xs" >Kembali Ke Depan Baju</button></center> -->
         </div>
 
         <div class="row">
 
           <div class="col-lg-12 mt-lg-0">
 
-            <div class="php-email-form">
-              <div class="form-group">
-                <select class="form-control" onchange="changecolor(value)" id="pilih_baju_select" style="font-family: Pacifico">
-                  <option selected="" disabled="">-Pilih Warna Baju</option>
-                  <option value="white1">Putih</option>
-                  <option value="black1">Hitam</option>
-                  <option value="red1">Merah</option>
-                  <option value="blue1">Biru</option>
-                  <option value="yellow1">Kuning</option>
-                  <option value="green1">Hijau</option>
-                  <option value="grey1">Abu-abu</option>
-                </select>
+            <!-- <center>
+              <div class="form-group fabric-canvas-wrapper">
+                <canvas id="c" height="300" style="border:1px solid #ccc;"></canvas>
               </div>
-              <div class="text-center"><button type="submit" onclick="lanjut()" style="font-family: Metal Mania">Lanjut Mendesain</button></div>
+            </center> -->
+
+            <div style="background-image: url(assets/img/white.png); height: 350px; width: 100%;background-size: 100% 100%;" id="sini_div_baju_color">
+              <div style="height: 20%; width: 100%;background-size: 100% 100%;"></div>
+              <div id="sini_div_canvas" style="height: 68%; width: 45%;background-size: 100% 100%;  position: center; margin: auto;">
+                <div class="form-group fabric-canvas-wrapper" style="height: 100%">
+                  <canvas id="c" style="border:1px solid #ccc;"></canvas>
+                </div>
+              </div>
+                
             </div>
+            <br>
+            <div class="form-group">
+              <select class="form-control pacific" onchange="change_editor(value)" id="editor_select" >
+                <option selected="" disabled="">-Pilih Editor</option>
+                <option value="bentuk">Persegi Bentuk</option>
+                <option value="teks">Teks</option>
+                <option value="drawing">Free Drawing</option>
+                <option value="image">Image</option>
+              </select>
+            </div>            
+            <div id="sini_div_editor"></div>
+            <div id="sini_tampung_image" style="display: none;"></div>
+
+            <div id="div_upload_image" style="display: none">
+              <div class="form-group">
+                <label class="pacific">Upload Image</label>
+                <input class="form-control" type="file" id="input_upload_image" >
+              </div>
+              <div class="form-group" style="text-align:center">
+                <button onclick="add_image()" class="btn btn-info pacific" style="font-weight: bold;">Tambah Image</button>
+              </div>
+            </div>
+            
+            <center><button id="save_datanya11" onclick="save_desain()" class="pacific btn btn-success"  disabled="">Simpan Desain</button></center>
+            <!-- <center><button onclick="cek_simpanan()" class="btn btn-success" style="font-weight: bold;">Cek Simpanan</button></center> -->
 
           </div>
 
@@ -136,7 +153,7 @@
   </footer><!-- End  Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <a href="#" id="back_to_top" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -153,7 +170,9 @@
 
   <!-- Template Main JS File -->
   <script src="cordova.js"></script>
-  <script src="assets/js/desain_1.js"></script>
+  
+  <script src="assets/fabric.min.js"></script> 
+  <script src="assets/js/desain_belakang.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

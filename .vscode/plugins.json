@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-whitelist","cordova-plugin-screen-orientation","es6-promise-plugin","cordova-plugin-x-socialsharing","cordova-plugin-androidx","cordova-plugin-androidx-adapter"]}
+{"plugins":["cordova-plugin-whitelist","cordova-plugin-screen-orientation","es6-promise-plugin","cordova-plugin-x-socialsharing","cordova-plugin-androidx","cordova-plugin-androidx-adapter","cordova-plugin-file"]}

@@ -25,6 +25,7 @@ function onDeviceReady() {
   // screen.orientation.lock('potrait');
 }
 
+
 ////// get warna baju //////
 	function $_GET(param) {
 	  var vars = {};
@@ -42,6 +43,7 @@ function onDeviceReady() {
 	}
 
 	var color = $_GET('color');
+	var id_baju = $_GET('id');
 
 
 	$("#sini_div_baju_color").attr("style","background-image: url(assets/img/"+color+".JPG); height: 350px; width: 100%;background-size: 100% 100%;");
@@ -903,27 +905,38 @@ var save_data = null; // ini data editor
 //// end canvas event /////
 
 function save_desain() {
-	var penyimpanan = localStorage.getItem('simpanan')
+	var penyimpanan = JSON.parse(localStorage.getItem('simpanan'))
   var a =  JSON.parse(save_data);
-  var id = 1;
-	color = color.slice(0,-1);
-  if (penyimpanan == null) {
-  	var ini = [{"id" : id ,"canvas" : color ,"isi_depan" : a, "isi_belakang" : null}];
-  	// localStorage.setItem('coba2', JSON.stringify(ini));
-  }
-  else
-  {
-  	id = JSON.parse(penyimpanan);
-  	id = id[id.length-1].id + 1
-  	var ini = [{"id" : id ,"canvas" : color ,"isi_depan" : a, "isi_belakang" : null}];
-  	penyimpanan = JSON.parse(penyimpanan)
-  	ini  = penyimpanan.concat(ini);
-  	// localStorage.setItem('coba2', JSON.stringify(ini));
-  }
-  localStorage.setItem('simpanan', JSON.stringify(ini));
-	
-  // window.location.replace("desain_complete.html?id="+id);
-  window.location.replace("desain_belakang.html?color="+color+"2&id="+id);
+	var coba2 = null
+
+	// console.log(penyimpanan);
+
+	for (let i = 0; i < penyimpanan.length; i++) {
+		if (penyimpanan[i].id == id_baju) {
+			// console.log(penyimpanan[i])
+			penyimpanan[i].isi_belakang = a;
+		}
+		
+	}
+	//  console.log(coba2.push('hehe'));
+	// console.log(penyimpanan)
+  
+  // if (penyimpanan == null) {
+  // 	var ini = [{"id" : id ,"canvas" : color ,"isi_depan" : a, "isi_belakang" : null}];
+  // 	// localStorage.setItem('coba2', JSON.stringify(ini));
+  // }
+  // else
+  // {
+  // 	id = JSON.parse(penyimpanan);
+  // 	id = id[id.length-1].id + 1
+  // 	var ini = [{"id" : id ,"canvas" : color ,"isi" : a, "isi_belakang" : null}];
+  // 	penyimpanan = JSON.parse(penyimpanan)
+  // 	ini  = penyimpanan.concat(ini);
+  // 	// localStorage.setItem('coba2', JSON.stringify(ini));
+  // }
+  localStorage.setItem('simpanan', JSON.stringify(penyimpanan));
+  window.location.replace("desain_complete.html?id="+id_baju);
+  // window.location.replace("desain_belakang.html?color="+color+"&id="+id);
 }
 
 function cek_simpanan(){
