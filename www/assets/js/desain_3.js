@@ -309,7 +309,10 @@ resizeCanvas();
 
 
 	function takeshot() { 
-	  var div = document.getElementById('sini_div_baju_color'); 
+	  var div = document.getElementById('sini_div_canvas'); 
+		canvas.backgroundColor=null;
+		canvas.renderAll();
+		var canvasnya = canvas;
 
 	  // Use the html2canvas 
 	  // function to take a screenshot 
@@ -320,7 +323,7 @@ resizeCanvas();
 	      document 
 	      .getElementById('output') 
 	      .appendChild(canvas); 
-	      var base64URL = canvas.toDataURL('image/jpeg');
+	      var base64URL = canvas.toDataURL('image/png');
 	      console.log(base64URL)
 	      $("#ini_untuk_share").attr('onclick',"window.plugins.socialsharing.share(null, 'Irwan T-Shirt Design', '"+base64URL+"', null)");
 	      var x = document.createElement("IMG");
@@ -331,6 +334,8 @@ resizeCanvas();
 		    setTimeout(function(){
 				  $('#ini_untuk_share').trigger('click');
 				}, 200);
+				canvasnya.backgroundColor = null;
+				canvasnya.renderAll();
 	  }) 
 	} 
 
@@ -346,7 +351,9 @@ resizeCanvas();
 			opacity: .5, 
 			color: '#fff' 
 		} });
-		var div = document.getElementById('sini_div_baju_color'); 
+		var div = document.getElementById('sini_div_canvas'); 
+		canvas.backgroundColor=null;
+		canvas.renderAll();
 		await html2canvas(div).then( 
 	    function (canvas) { 
 	      document 
@@ -432,6 +439,8 @@ resizeCanvas();
 		}
 		xhr.send();
 		$.unblockUI();
+		canvas.backgroundColor = null;
+		canvas.renderAll();
 	}
 
 	function sleep(ms) {
